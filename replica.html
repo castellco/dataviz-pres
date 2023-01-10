@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
   <link href="./assets/favicon.ico" rel="icon">
 
-  <title>Carolina Cornejo Castellano</title>  
+  <title>Title page</title>  
 
 <link href="./main.3f6952e4.css" rel="stylesheet"></head>
 
@@ -38,11 +38,10 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
           <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./replica.html" title="">02 : Replica</a></li>
-          <li><a href="./enhancements.html" title="">03 : Enhancements</a></li>
-          <li><a href="./alternatives.html" title="">04 : Alternative(s)</a></li>
-          <li><a href="./bad-alternative.html" title="">05 : (Bad) alternative</a></li>
-          <!--<li><a href="./components.html" title="">05 : Components</a></li> -->
+          <li><a href="./works.html" title="">02 : Works</a></li>
+          <li><a href="./about.html" title="">03 : CV</a></li>
+          <li><a href="./contact.html" title="">04 : Contact me</a></li>
+          <li><a href="./components.html" title="">05 : Components</a></li>
         </ul>
 
 
@@ -52,106 +51,272 @@
 </header>
 
 <div class="section-container">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="section-container-spacer text-center">
-            <h1 class="h2">02 : Replica</h1>
-            <p> An iterative process divided into 3 parts.</p>
-          </div>
+  
+<!-- Add your site or app content here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+
+        <div class="template-example">
+          <h2 class="template-title-example">Replica building</h2>
+          <p>
+            <pre>
+              <code style="display:block; white-space:pre-wrap;background: hsl(0, 0%, 90%); ">
+              
+                replica <- ggplot(
+                  data = df,
+                  aes(x = generation, 
+                      y = ranking, 
+                      group = variables)) +
+                  # Add the custom theme just designed
+                   theme_bump() +
+                  # Add the horizontal lines per generation
+                     geom_line(aes(color = variables, 
+                                   alpha = 1, 
+                                   # Change line thickness accordingly:
+                                   linewidth = rev(ranking))) + 
+                  # Add the points. The white ones are for the border  
+                   geom_point(size = 11.85, 
+                                color = "white") +
+                     geom_point(aes(color = variables), 
+                                size = 11.3) +
+                     scale_y_reverse(breaks = 1:nrow(df)) +
+                  # Order and 
+                     scale_x_discrete(
+                       limits = x_names_ordered,
+                       labels = x_names_full,
+                       position = "top",
+                       expand = expansion(mult = c(0.356, 0.1))
+                                    ) +
+                  # Titles, subtitle, caption and tag 
+                  labs(
+                    title = "HOW AMERICANS SPEND THEIR MONEY",
+                    subtitle = "By Age Group | 2021",
+                    caption = "Author: Preethi Lodha",
+                    tag = x_lab
+                  ) +
+                  # Add the two horizontal white lines at the top and the bottom
+                    coord_cartesian(clip = "off") +
+                      annotation_custom(linesGrob(x = c(0, 0.99), 
+                                                  y = c(1.11, 1.11), 
+                                                  gp = gpar(col = "#f0eae8", 
+                                                            lwd = 2.8, 
+                                                            lineend = "square"))) +
+                      annotation_custom(linesGrob(x = c(0, 0.99), 
+                                                  y = c(-0.05, -0.05), 
+                                                  gp = gpar(col = "#f0eae8", 
+                                                            lwd = 2.8, 
+                                                            lineend = "square"))) +
+                  # Add the Y axis text     
+                  geom_text(data = df %>% 
+                                    filter(generation == "Silent"), 
+                                  aes(label = variables, 
+                                      x = 0.72236), 
+                                  hjust = "outward", 
+                                  fontface = "bold", 
+                                  color = "#272727", 
+                                  size = 2.4) +
+                  # Add the amount money spent.
+                      geom_text(data = df, 
+                                aes(label = dollars), 
+                                hjust = "center", 
+                                color = "white", 
+                                size = 2.25, 
+                                fontface = "bold") +
+                      geom_text(data = df, 
+                                aes(label = dollars), 
+                                hjust = "center", 
+                                color = "white", 
+                                size = 2.253, 
+                                fontface = "bold") +
+                      geom_text(data = df, aes(label = dollars), 
+                                hjust = "center", 
+                                color = "white", 
+                                size = 2.257, 
+                                fontface = "bold") +
+                  # Add line colors
+                      scale_color_manual(values = c(
+                        "#9c6255",
+                        "#a0d4ee",
+                        "#9d8379",
+                        "#8f93b5",
+                        "#494c4d",
+                        "#2f634a",
+                        "#ed444a",
+                        "#8a8887",
+                        "#a13b5d",
+                        "#87a7a0",
+                        "#af9e2e",
+                        "#6d1f29",
+                        "#466f9d",
+                        "#3896c4"
+                      )) 
+                </code>
+              </pre>
+          </p>
+        </div>
+
+        <div class="template-example">
+          <h2 class="template-title-example">Headings</h2>
+          
+          <table class="table table-bordered">
+            <tr><td><h1>H1: Heading 1</h1></td></tr>
+            <tr><td><h2>H2: Heading 2</h2></td></tr>
+            <tr><td><h3>H3: Heading 3</h3></td></tr>
+            <tr><td><h4>H4: Heading 4</h4></td></tr>
+          </table>
+          
+        </div>
+
+        
+        <div class="template-example">
+          <h2 class="template-title-example">List</h2>
           <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="row">
-                <div class="col-xs-12 col-md-6">
-                  <h3>Theme building</h3>
-                  <h4><li></li></h4>
-                  <p> 
-                    <pre>
-                      <code>
-                        theme_bump <- function() {
-
-                          # Begin construction of the theme
-                          theme_bw(base_size = 15) +
-                        
-                            # Format background colors
-                            theme(panel.background = element_rect(
-                              fill = color_background, 
-                              color = color_background)) +
-                            theme(plot.background = element_rect(
-                              fill = color_background, 
-                              color = color_background)) +
-                            theme(panel.border = element_rect(
-                              color = color_background)) +
-                            theme(strip.background = element_rect(
-                              fill = color_background, 
-                              color = color_background)) +
-                        
-                            # Format the grid
-                            theme(axis.ticks = element_blank()) +
-                            theme(panel.grid = element_line(
-                              colour = color_background)) +
-                        
-                            # Format the legend
-                            theme(legend.position = "none") + 
-
-                            ...
-                      </code>
-                    </pre>
-                  </p>                  
-                  <h4><li>Pontificia Universidad Católica del Perú | 12/03/2012 — 10/08/2018</li></h4>
-                  <p>Major in <a href="https://facultad.pucp.edu.pe/comunicaciones/carreras/comunicacion-para-el-desarrollo/plan-de-estudios/ingresantes-hasta-el-2015-ii/">Communication for Development</a>.
-                    Average grade: 15.38/20. Upper second class honours.</p>
-                  <h4><li>Universidad ESAN | 05/09/2020 — 20/03/2021</li></h4>
-                  <p><a href="https://drive.google.com/file/d/1TFI3JIWyuu0W2xcC5FmzMXS6PRWrKO0X/view?usp=sharing">Specialisation in Monitoring and evaluation of social projects and programmes.</a> 
-                    Ranked top 1.</p>
-                  <h4><li>Pontificia Universidad Católica del Perú | 28/08/2021 — present</li></h4>
-                  <p><a href="https://qlab.pucp.edu.pe/cursos/diplomatura-qlab">Diploma in Data Science for Social Science and Public Management.</a></p>
-                  <h4><li>Universidad Nacional Autónoma de México | 06/09/2021 — 02/06/2022</li></h4>
-                  <p><a href="https://drive.google.com/file/d/1KhOcCCePldH1hIAgmIGl6lAQMJjOX-e2/view?usp=sharing">Diploma in Social Methodology and Applied Research Techniques.</a></p>
-                  <h3>Relevant professional experience </h3>
-                  <h4><li>Economic and Social Research Consortium | 23/09/2019 — 31/12/2021</li></h4>
-                  <p>Monitoring and evaluation database manager.
-                    <li>100% of my M&E reports have been approved by UN Women, thefunding institution, with 0 objections.</li>
-                    <li>In another area, I oversaw the press team of “Peru Debate 2021”. As aresult, the project was covered more than 400 times in the nationalpress and trained more than 300 journalists.</li>
-                  <h4><li>Prof. Marcela Huaita A. | | 01/04/2018 — 10/03/2019</li></h4>
-                  <p>Research assistant.
-                    <li>Assisted Prof. Huaita in research related to gender, public policy and human rights.</li>
-                    <li>Two papers published.</li>
-                    <li>One research presented at a local academic conference.</li>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                  <h3>Bump chart</h3>
-                  <p><pre>
-                    <code style="display:block; white-space:pre-wrap;background: hsl(220, 80%, 90%); ">
-                    
-                     <!--- paste your code from IDE here ---->
-                    </code>
-                    </pre></p>
-                  <p><li>Huaita Alegre, M., & Cornejo Castellano, G.(2019). The ratification of CEDAW as a milestone in the struggle for women’s rights in Peru. IUS ET VERITAS, (59), 72-83. https://doi.org/10.18800/iusetveritas.201902.004 </li></p>
-                  <p><li>Huaita Alegre, M., Chavez Granda, J.,Cornejo Castellano, G. & Saravia Pinazo, M. (2019). <a href= "https://www.pj.gob.pe/wps/wcm/connect/f8e04a004cef7018bd0effe93f7fa794/ACCESO+A+LA+JUSTICIA+Y+GÉNERO+WEB.pdf?MOD=AJPERES&CACHEID=f8e04a004cef7018bd0effe93f7fa794">Gender violence perpetrated in the family environment against children and adolescents perceived as part of the LGTBI population. Acceso a la justicia: discriminación y violencia por motivos de género, 49-95.</a></li></p>
-                  <p><li>Alza, Carlos, et al. (2017). <a href= "https://promsex.org/publicaciones/equality-to-strengthen-democracy-analysis-of-lgtbi-candidacies-in-the-electoral-processes-from-2006-to-2016/">Equality to strengthen democracy. Analysis of LGTBI candidacies in the electoral processes from 2006 to 2016.</a></li></p>
-                  <h3>Activities</h3>
-                    <li>2018. Assistance in the research "Relationship between family and schoolviolence in children and teenagers" by L. Levano and F. Alarcon.</li>
-                    <li>07/2016 — 12/2018. Member of the Research Group on Public Policy and Public Management of the School of Government and Public Policy - PUCP. Public Policies for Sexual Diversity Team (Disex).</li>
-                    <li>2012 — 2016. Volunteer in AIESEC.</li>
-                  <!-- <img src="./assets/images/profil.jpg" class="img-responsive" alt=""> --> 
-                </div>
-              </div>
+            <div class="col-md-6">
+              <h3 class="template-title-example">Ordered</h3>
+              <ul>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3 class="template-title-example">Number</h3>
+              <ol>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit</li>
+              </ol>
             </div>
           </div>
+        </div>
+        
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="template-example">
+          <h2 class="template-title-example">Icons</h2>
           
+          <div class="row">
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </blockquote>
+            
+            <div class="col-md-6">
+               <h3 class="template-title-example">Basic Icons</h2>
+                <ul class="list-icons">
+                  <li>
+                    <span class="fa-icon">
+                      <i class="fa fa-facebook"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="fa-icon">
+                      <i class="fa fa-twitter"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="fa-icon">
+                      <i class="fa fa-linkedin"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="fa-icon">
+                      <i class="fa fa-instagram"></i>
+                    </span>
+                  </li>
+                </ul>
+            </div>
+
+          </div>
+
+
           
-       </div>
+
+
+        </div>
+
+        <div class="template-example">
+          <h2 class="template-title-example">Buttons</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="template-title-example">Primary</h2>
+              <div class="row">
+                  <div class="col-md-6">
+                  <p><a href="" class="btn btn-primary btn-lg">Primary Large</a></p>
+                  <p><a href="" class="btn btn-primary">Primary </a></p>
+                  <p><a href="" class="btn btn-primary btn-sm">Primary Small</a></p>
+                </div>
+              </div>
+
+              
+            </div>
+
+            <div class="col-md-6">
+              <h3 class="template-title-example">Default</h2>
+              <div class="row">
+                  <div class="col-md-6">
+                  <p><a href="" class="btn btn-default btn-lg">Default Large</a></p>
+                  <p><a href="" class="btn btn-default">Default </a></p>
+                  <p><a href="" class="btn btn-default btn-sm">Default Small</a></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="template-example">
+          <h2 class="template-title-example">Inputs</h2>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-inline">
+                <input 
+                type="checkbox" id="inlineCheckbox1" value="option1"> Email me a copy
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" value="option2"> I am a human
+              </label>
+            </div>
+
+            <div class="form-group">
+              <textarea class="form-control" rows="3" placeholder="Enter your message"></textarea>
+            </div>
+            
+            <div class="alert alert-success" role="alert">Your message was successfully sent</div>
+            <div class="alert alert-danger" role="alert">Your message has not been sent, restart</div>
+        </div>
+
+
+
+
       </div>
     </div>
   </div>
-
+</div>
 
 <footer class="footer-container text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <p>© Carolina Cornejo Castellano | Cover photo taken from: Goodfreephotos.com</p>
+        <p>© UNTITLED | </p>
       </div>
     </div>
   </div>
