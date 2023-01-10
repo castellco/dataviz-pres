@@ -80,36 +80,36 @@
               
               <pre class="line-numbers" style="padding-left: 10px;">
                 <code class="language-css">
-                  millennials <- ggplot(df %>% filter(generation=="Millennials"),
-                  aes(area = dollars,
-                      fill = variables,
-                      label = paste(variables, dollars2, sep = "\n")
-                      )) +
-          geom_treemap(
-                      layout = "srow",
-                       radius = unit(0, "pt")) +
-          geom_treemap_text(
-                      layout = "srow",
-                      colour = "#fbf2dd",
-                      size = 9,
-                      fontface = "bold",
-                      family = "Consolas",
-                      min.size = 3,
-                      reflow = TRUE,
-                      padding.x = unit(2, "mm"),
-                      padding.y = unit(2, "mm")) +
-          theme_tree() +
-          #theme(aspect.ratio=1) +
-          theme(legend.position = "none") +
-          theme(plot.margin = unit(c(0.1, 0.1, 0.1, 0.), "cm")) + # top, right, bottom, left
-              scale_fill_manual(values=c("#c49350",
-                                    "#c49350",
-                                    "#c49350",
-                                    "#c49350",
-                                    "#805b28",
-                                    "#e3af6b",
-                                    "#c49350",
-                                    "#c49350"))
+        millennials <- ggplot(df %>% filter(generation=="Millennials"),
+        aes(area = dollars,
+            fill = variables,
+            label = paste(variables, dollars2, sep = "\n")
+            )) +
+geom_treemap(
+            layout = "srow",
+              radius = unit(0, "pt")) +
+geom_treemap_text(
+            layout = "srow",
+            colour = "#fbf2dd",
+            size = 9,
+            fontface = "bold",
+            family = "Consolas",
+            min.size = 3,
+            reflow = TRUE,
+            padding.x = unit(2, "mm"),
+            padding.y = unit(2, "mm")) +
+theme_tree() +
+#theme(aspect.ratio=1) +
+theme(legend.position = "none") +
+theme(plot.margin = unit(c(0.1, 0.1, 0.1, 0.), "cm")) + # top, right, bottom, left
+    scale_fill_manual(values=c("#c49350",
+                          "#c49350",
+                          "#c49350",
+                          "#c49350",
+                          "#805b28",
+                          "#e3af6b",
+                          "#c49350",
+                          "#c49350"))
                 </code>
              </pre>
             </div>
