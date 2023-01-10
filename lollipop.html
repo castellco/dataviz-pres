@@ -38,22 +38,12 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
           <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./about.html" title="">02 : CV</a></li>
-          <li><a href="./works.html" title="">03 : Works</a></li>
-          <li><a href="./contact.html" title="">04 : Contact me</a></li>
+          <li><a href="./replica.html" title="">02 : Replica</a></li>
+          <li><a href="./enhancements.html" title="">03 : Enhancements</a></li>
+          <li><a href="./alternatives.html" title="">04 : Alternative(s)</a></li>
+          <li><a href="./bad-alternative.html" title="">05 : (Bad) alternative</a></li>
           <!-- <li><a href="./components.html" title="">05 : Components</a></li> -->
         </ul>
-
-
-          <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
-            <li><a href="./index.html" title="" class="active">001</a></li>
-            <li><a href="./index.html" title="">002</a></li>
-            <li><a href="./index.html" title="">003</a></li>
-            <li><a href="./index.html" title="">004</a></li>
-            <li><a href="./index.html" title="">005</a></li>
-            <li><a href="./index.html" title="">006</a></li>
-          </ul>
-
 
       </div> 
     </div>
@@ -63,53 +53,129 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <img src="./assets/images/code.png" class="img-responsive" alt="">
+        <img src="./assets/images/brown_header.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">002 : Code</h1>
+            <h1 class="h2">Lollipop plot</h1>
           </div>
-          <p>Primarily R. This page is not actively updated, better check my <a href="https://github.com/carolinacornejocastellano">Github</a> </p>
-
-          <!-- <blockquote>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."</p>
-            <small class="pull-right">Irina Martin</small>
-          </blockquote> -->
+          <p>Also colorblind friendly, without labels and cleaner.</p>
         </div>
       </div>
-      <div>
-      <h3><a href="https://github.com/carolinacornejocastellano/censo_nacional_penitenciario_2016">1. Characteristics of the penitentiary population in Peru</a></h3>
-        <li>RMarkdown based on the first National Prison Population Census 2016.</li>
-        <p><a href="https://github.com/carolinacornejocastellano/censo_nacional_penitenciario_2016">Github repository</a></p>
-      <h3><a href="https://github.com/carolinacornejocastellano/carolinacornejocastellano.github.io">2. Github Pages</a></h3>
-        <li>Files used to edit this personal website.</a></li>
-        <p><a href="https://github.com/carolinacornejocastellano/carolinacornejocastellano.github.io">Github repository</a></p>
-      <h3><a href="https://github.com/carolinacornejocastellano/R_NLP-Cavero">3. Text mining and natural language processing of Congressman Alejandro Cavero's tweets using R.</a></h3>
-      <li>RMarkdown and HTML report of Alejandro Cavero's tweets using the {SentimentAnalysis} and {syuzhet} packages. A total of 1000 tweets were extracted on 09 February 2022.</a></li>
-      <p><a href="https://github.com/carolinacornejocastellano/R_NLP-Cavero">Github repository</a></p>
+
+      <div class="col-xs-12">
+        <img src="./assets/images/alternative_lol.png" class="img-responsive" alt="">
+        <p>This is my proposed alternative visualization. </p>
       </div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <h3>Plot</h3>
+              
+              <pre class="line-numbers" style="padding-left: 10px;">
+                <code class="language-css">
+lol <-
+ggplot(df)+
+    geom_linerange(aes(
+      x = generation,
+      ymin = 0, 
+      ymax = dollars, 
+      colour = reorder(variables, desc(dollars))), 
+      position = position_dodge(0.8))+
+    geom_point(
+      aes(
+        x = generation,
+        y = dollars,
+        colour = reorder(variables, desc(dollars)),
+      ),
+      size = 4,
+      position = position_dodge(0.8)
+    ) +
+    scale_x_discrete(
+    limits = gen_order,
+    labels = c("**Silent**<br>1945 or earlier<br>**$44,683**",
+                "**Boomers**<br>1946 to 1964<br>$**62,203**",
+                "**Generation X**<br>1965 to 1980<br>**$83,357**",
+                "**Millennials**<br>1981 to 1996<br>**$69,061**",
+                "**Generation Z**<br>1997 or later<br>**$41,636**")
+                ) +
+  scale_y_continuous(
+        expand = c(0.03,0),
+        n.breaks = 8
+        ) +
+  scale_color_manual(values = colorblind) +
+  labs(
+    title = 
+      paste("",
+            "_Housing_: more than 30% of Americans' expenditures in 2021",
+            "",
+            sep = ""),
       
-      
-      <!-- <div class="col-md-8 col-md-offset-2 section-container-spacer">
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
-            <img src="./assets/images/work001-04.jpg" class="img-responsive" alt="">
-            <p><li>Huaita Alegre, M., & Cornejo Castellano, G.(2019). The ratification of CEDAW as a milestone in the struggle for women’s rights in Peru. IUS ET VERITAS, (59), 72-83. <a href="doi.org/10.18800/iusetveritas.201902.004">doi.org/10.18800/iusetveritas.201902.004</a></li></p>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <img src="./assets/images/work001-03.jpg" class="img-responsive" alt="">
-            <p><li>Huaita Alegre, M., Chavez Granda, J.,Cornejo Castellano, G. & Saravia Pinazo, M. (2019). Gender violence perpetrated in the family environment against children and adolescents perceived as part of the LGTBIpopulation. Acceso a la justicia: discriminación y violencia por motivos de género, 49-95. <a href="bit.ly/ViolenciaNiñosLGTBI">bit.ly/ViolenciaNiñosLGTBI</a></li></p>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <img src="./assets/images/work001-02.jpg" class="img-responsive" alt="">
-            <p><li>Alza, Carlos, et al. (2017). Equality to strengthen democracy. Analysis of LGTBI candidacies in the electoral processes from 2006 to 2016. <a href="bit.ly/EqualitytoStrengthenDemocracy">bit.ly/EqualitytoStrengthenDemocracy</a></li></p>
+    subtitle = 
+      paste("",
+            "It was the top spending category across all generations in 2021.<br>",
+            "Overall, _Gen X_ spent the most ($83,357), followed by _Millennials_ ($69,091).",
+            "",
+            sep = ""
+            ),
+    
+    caption = "Carolina Cornejo Castellano | Data: U.S. Bureau of Labor Statistics"
+        ) +
+  theme_bar() +
+    theme(
+          legend.box.margin = margin(0.2,1,0.2,0.2, unit = "cm"),
+          legend.spacing.x = unit(0.4, 'cm'),
+          axis.text.x = element_markdown(
+                                        color = "#3b3b3a", 
+                                        family = "Consolas", 
+                                        size=7.5
+                                      ),
+          plot.title.position = "plot",
+          panel.grid.major.y = element_line(color = "#b0aeae",
+                                          linewidth = 0.25,
+                                          linetype = "dashed"))
+                </code>
+             </pre>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+              <h3>Libraries</h3>
+              <pre class="line-numbers">
+                <code class="language-css">
+# Libraries
+library(tidyverse)
+library(ggplot2)
+library(ggtext)
+library(grid)
+library(ggrepel)
+library(ggpubr)
+                </code>
+             </pre>
+              <!-- <img src="./assets/images/profil.jpg" class="img-responsive" alt=""> --> 
+            </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <div class="col-xs-12">
-        <img src="./assets/images/work001-04.jpg" class="img-responsive" alt="">
-      </div> -->
+            <div class="col-xs-12 col-md-6">
 
+                </code>
+             </pre>
+              <!-- <img src="./assets/images/profil.jpg" class="img-responsive" alt=""> --> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <!-- <img src="./assets/images/original.png" class="img-responsive" alt="">
+        <p>Original</p>
+      </div>
+      <div class="col-xs-12">
+        <img src="./assets/images/replica.png" class="img-responsive" alt="">
+        <p>My replica</p> -->
+      </div>
     </div>
   </div>
 </div>

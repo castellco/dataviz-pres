@@ -56,19 +56,20 @@
         <img src="./assets/images/brown_header.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">Barplot</h1>
+            <h1 class="h2">Treemap</h1>
           </div>
-          <p>Colorblind friendly and with not-so-problematic labels.</p>
+          <p>More eye-catching, but even worse than pie charts!</p>
         </div>
       </div>
-      <blockquote>
-        <p>“The data [...] are the reason for the existence of the graph. The data should stand out. [...] There are many ways to obscure the data, such as allowing other elements of the graph to interfere with the data or not making the graphical elements encoding the data visually prominent."</p>
-        <small class="pull-right">Cleveland, 1985</small>
-      </blockquote>
+<blockquote>
+  <p>"The results confirm our hypothesis that, on average, the accuracy of rectangular area judgments matches that of circular area judgments."</p>
+  <small class="pull-right">Heer and Bostock, 2010</small>
+</blockquote>
+
 
       <div class="col-xs-12">
-        <img src="./assets/images/alternative_bar.png" class="img-responsive" alt="">
-        <p>This is my proposed alternative visualization. </p>
+        <img src="./assets/images/alternative_tree.png" class="img-responsive" alt="">
+        <p>Just for comparison purposes. This is NOT the proposed alternative visualization. </p>
       </div>
 
       <div class="row">
@@ -79,90 +80,65 @@
               
               <pre class="line-numbers" style="padding-left: 10px;">
                 <code class="language-css">
-bar <- ggplot(df, aes(
-  fill = reorder(variables, 
-                  desc(dollars)), 
-  y    = dollars,
-  x    = generation)) +
-geom_bar(position  = "dodge", # for groups
-      stat      = "identity",
-      linewidth = 0.05,
-      color     = color_background) +
-# Add dollars' labels
-geom_text(aes(label = dollars2),
-    position      = position_dodge(0.9),
-    color         = color_text,
-    family        = "Consolas",
-    #vjust         = 0.5,
-    hjust         = -0.3,
-    size          = 2.5
-    ) +
-# Order of the x Axis text
-scale_x_discrete(
-limits = gen_order,
-labels = c(
-"**Generation Z**<br>1997 or later<br>**$41,636**",
-"**Millennials**<br>1981 to 1996<br>**$69,061**",
-"**Generation X**<br>1965 to 1980<br>**$83,357**",
-"**Boomers**<br>1946 to 1964<br>$**62,203**",
-"**Silent**<br>1945 or earlier<br>**$44,683**"
-        )
-) +
-# To manipulate the width of the graphic:
-scale_y_continuous(
-expand = c(0.005,0), #0.0632
-            ) +
-scale_fill_manual(
-values = colorblind #colorblind-friendly palette
-            ) +
-labs(
-title = 
-paste("",
-    "_Housing_: more than 30% of Americans' expenditures in 2021",
-    "",
-    sep = ""),
-
-subtitle = 
-paste("",
-    "It was the top spending category across all generations in 2021.<br>",
-    "Overall, _Gen X_ spent the most ($83,357), followed by _Millennials_ ($69,091).",
-    "",
-    sep = ""
-    ),
-
-caption = "Carolina Cornejo Castellano | Data: U.S. Bureau of Labor Statistics",
-# As one of the bars was too large, we added its label manually as a tag
-tag = tag_house 
-) +
-theme_bar() +
-theme(
-legend.box.margin = margin(0.2,2,0.2,0.1, unit = "cm"),
-legend.spacing.x = unit(0.4, 'cm'),
-plot.title.position = "plot",
-plot.tag = element_markdown(
-family = "Consolas",
-lineheight = 0.1, 
-size = 7.5,
-color = color_background),
-plot.tag.position = c(0.965, 0.332)) + #horizontal, vertical
-coord_flip() 
+                  millennials <- ggplot(df %>% filter(generation=="Millennials"),
+                  aes(area = dollars,
+                      fill = variables,
+                      label = paste(variables, dollars2, sep = "\n")
+                      )) +
+          geom_treemap(
+                      layout = "srow",
+                       radius = unit(0, "pt")) +
+          geom_treemap_text(
+                      layout = "srow",
+                      colour = "#fbf2dd",
+                      size = 9,
+                      fontface = "bold",
+                      family = "Consolas",
+                      min.size = 3,
+                      reflow = TRUE,
+                      padding.x = unit(2, "mm"),
+                      padding.y = unit(2, "mm")) +
+          theme_tree() +
+          #theme(aspect.ratio=1) +
+          theme(legend.position = "none") +
+          theme(plot.margin = unit(c(0.1, 0.1, 0.1, 0.), "cm")) + # top, right, bottom, left
+              scale_fill_manual(values=c("#c49350",
+                                    "#c49350",
+                                    "#c49350",
+                                    "#c49350",
+                                    "#805b28",
+                                    "#e3af6b",
+                                    "#c49350",
+                                    "#c49350"))
                 </code>
              </pre>
             </div>
 
             <div class="col-xs-12 col-md-6">
-              <h3>Libraries</h3>
+              <h3>Custom legend hack</h3>
               <pre class="line-numbers">
                 <code class="language-css">
-# Libraries
-library(tidyverse)
-library(ggplot2)
-library(ggtext)
-library(grid)
-library(ggrepel)
-library(ggpubr)
+# Extract the legend of a simple barplot
+legend_extract <- get_legend(bar2) 
+
+# Turn the legend into a ggplot2 object
+legend <- as_ggplot(legend_extract)
+```
                 </code>
              </pre>
+
+             <h3>Patchwork</h3>
+             <pre class="line-numbers">
+               <code class="language-css">
+ tree <- legend + ((silent / boomers) | (x / millennials) + z) + 
+ plot_layout(
+             nrow = 2,
+             ncol = 1,
+             heights = c(0.5, 6))
+ [...]
+               </code>
+             </pre>
+
               <!-- <img src="./assets/images/profil.jpg" class="img-responsive" alt=""> --> 
             </div>
           </div>
