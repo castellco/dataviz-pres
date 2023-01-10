@@ -63,13 +63,87 @@
               <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <h3>Theme building</h3>
-                  <h4><li>
+                  <h4><li></li></h4>
+                  <p> 
 
-
-
+                    # Colors
+                    color_background <- "#e5d9cf"
+                    color_text <- "#333333"
+            
                     
-                  </li></h4>
-                  <p><a href="https://www.uc3m.es/master/computational-social-science">Master's degree in Computational Social Science</a>.</p>                  
+                    The textual elements were changed from `element_text` to `element_markdown` of the `ggtext` package. This allows to use markdown or HTML to design text strings.
+                    
+                   
+                    theme_bump <- function() {
+                    
+                      # Begin construction of the theme
+                      theme_bw(base_size = 15) +
+                    
+                        # Format background colors
+                        theme(panel.background = element_rect(
+                          fill = color_background, 
+                          color = color_background)) +
+                        theme(plot.background = element_rect(
+                          fill = color_background, 
+                          color = color_background)) +
+                        theme(panel.border = element_rect(
+                          color = color_background)) +
+                        theme(strip.background = element_rect(
+                          fill = color_background, 
+                          color = color_background)) +
+                    
+                        # Format the grid
+                        theme(axis.ticks = element_blank()) +
+                        theme(panel.grid = element_line(
+                          colour = color_background)) +
+                    
+                        # Format the legend
+                        theme(legend.position = "none") +
+                    
+                        # Format de caption
+                        theme(plot.caption = element_text(
+                          hjust = 0.6, 
+                          vjust= 0.1, 
+                          size = 5.45)) +
+                    
+                        # Format title and axis labels
+                        theme(plot.title = element_text(
+                          color = color_text, 
+                          size = 17.5, 
+                          face = "bold", 
+                          hjust = 0.5, 
+                          margin=margin(0,0,10,0))) +
+                        theme(plot.subtitle = element_text(
+                          color = color_text, 
+                          size = 11, 
+                          hjust = 0.5, 
+                          face = "bold", 
+                          margin=margin(0,0,22,0))) +
+                        theme(axis.title.x = element_blank()) +
+                        theme(axis.title.y = element_blank()) +
+                        theme(axis.text = element_markdown()) +
+                        theme(axis.text.x = element_markdown()) +
+                        theme(axis.text.x.top = element_markdown(
+                          color = "#3b3b3a", 
+                          family = "Arial Narrow", 
+                          size=7.5)) +
+                        theme(axis.text.y = element_blank()) +
+                        # theme(strip.text = element_text(face = "bold")) +
+                        theme(plot.tag = element_markdown(
+                          family = "Arial Narrow", 
+                          lineheight = 0.1, 
+                          size = 8)) +
+                        theme(plot.tag.position = 
+                                c(0.10, 0.85)) +
+                    
+                        # Plot margins
+                        theme(plot.margin = 
+                                unit(c(0.5, 0.4, 0.5, 0.65), "cm")) # top, right, bottom, left
+                    }
+                  
+
+
+                  </p>                  
                   <h4><li>Pontificia Universidad Católica del Perú | 12/03/2012 — 10/08/2018</li></h4>
                   <p>Major in <a href="https://facultad.pucp.edu.pe/comunicaciones/carreras/comunicacion-para-el-desarrollo/plan-de-estudios/ingresantes-hasta-el-2015-ii/">Communication for Development</a>.
                     Average grade: 15.38/20. Upper second class honours.</p>
