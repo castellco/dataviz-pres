@@ -8,9 +8,10 @@
     cursor: pointer;
     display: inline-block; // Allow us to better style box model properties
     font-family: $font-family--ui;
-    font-size: 1rem;
-    letter-spacing: 1px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .9rem;
     line-height: $line-height--base;
     margin-bottom: 0; // For input.btn
     padding: $button-padding;
@@ -46,6 +47,7 @@
 
     @media screen and (max-width: $breakpoint--sm) {
         display: block;
+        width: 100%;
         margin-bottom: $space-1;
     }
 }
@@ -55,6 +57,14 @@ a.btn {
     fieldset[disabled] & {
         pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
+}
+
+
+// Button sizes
+// -------------------------------------------------------------------
+.btn--sm {
+    font-size: $h6;
+    padding:$button-padding--sm;
 }
 
 
@@ -88,12 +98,13 @@ a.btn {
 
     &:hover,
     &:focus {
-        background-color: transparent;
-        border-color: $dark-gray;
+        background-color: $border-color;
+        border-color: $border-color;
+        color: $white;
     }
 
     &:active {
-        background-color: transparent;
-        border-color: $light-gray;
+        background-color: $darkest-gray;
+        border-color: $darkest-gray;
     }
 }

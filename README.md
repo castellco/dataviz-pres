@@ -1,5 +1,5 @@
-# Viking
-Say hello to Viking, a classic, full-height site template.
+# Chippewa
+Say hello to Chippewa, an eclectic, patterned site template.
 
 [Papaya](https://www.papayatemplates.com)
 [@jrdnbwmn](https://www.twitter.com/jrdnbwmn)

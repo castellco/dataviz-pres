@@ -52,12 +52,13 @@ h6 { color: $gray; }
 }
 
 // Paragraph
-p { margin: 0 auto $p-mb auto; }
+p { margin: 0; }
 
 // Small
 small,
 .small {
-    font-size: .6rem !important;
+    font-weight: normal;
+    line-height: 1;
 }
 
 // A better looking default horizontal rule
@@ -85,8 +86,8 @@ hr {
 // Utilities
 // -------------------------------------------------------------------
 // Weight
-.bold                    { font-weight: 700; }
-.regular                 { font-weight: 400; }
+.bold                    { font-weight: bold; }
+.regular                 { font-weight: normal; }
 .italic                  { font-style: italic; }
 
 // Text align
@@ -94,10 +95,6 @@ hr {
 .align--center           { text-align: center; }
 .align--right            { text-align: right; }
 .align--justify          { text-align: justify; }
-
-@media screen and (max-width: $breakpoint--ty) {
-    .align--center-on-tiny { text-align: center; }
-}
 
 // Line height
 .line-height--base       { line-height: $line-height--base; }

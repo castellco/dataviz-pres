@@ -51,13 +51,16 @@ textarea {
 
 ul,
 ol {
-    margin-bottom: 0;
+    margin-bottom: $p-mb;
 
     ul,
     ol {
         margin-bottom: 0; // Take off bottom margin from nested lists.
     }
 }
+
+// Make font family consistent
+code, kbd, pre, samp { font-family: $font-family--code; }
 
 // Address variances font weight/styles and line heights.
 b, strong { line-height: inherit; }
@@ -155,7 +158,7 @@ button {
 }
 
 // Prevent zoom on touch devices in active inputs
-@media screen and (max-width: $breakpoint--sm) {
+@media screen and (max-width: $breakpoint--md) {
     input, textarea, select { font-size: 16px; }
 }
 

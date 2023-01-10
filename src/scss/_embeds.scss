@@ -3,13 +3,15 @@
 // Make stuff responsive
 img, canvas, iframe, video, svg { max-width: 100%; }
 
-.logo-container { bottom: .6rem; }
+.logo { width: 385px; }
 
-.logo--mobile { max-height: 19px; }
-
-.logo--desktop { max-width: 19px; }
+.info-image {
+    @media screen and (min-width: $breakpoint--md) {
+        box-shadow: $shadow;
+    }
+}
 
 .icon {
-    max-width: 18px;
-    max-height: 18px;
+    height: 35px;
+    width: 35px;
 }
